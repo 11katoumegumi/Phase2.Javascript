@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* null也是只有一个值，那就是null，它代表的是空*/
+        /* null出现的四种场景 */
+
+        /* 1定义一个变量，但先不赋值，可以把它的值设置为null */
+        var a=null;
+        alert(a);
+        /* 2当一个函数需要参数但不想传递的时候可以传递一个null */
+        function b(name,gender,age){
+            alert(name+gender+age);
+        }
+        b("name1",null,22);
+        /* 3 把一个对象变成垃圾对象，可以给变量赋值为null */
+        var c={
+            family:name,
+            hobby:"none"
+
+        }
+        var c=null;
+        alert(c);
+        /* 4原型链的终点是null */
+    </script>
+</body>
+</html>

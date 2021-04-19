@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <!-- 设置一个外部引入js,让其弹出警告窗来测试三种引入的执行方式 -->
+
+        <!-- 一般情况：从文件由上往下读取，当读取到JS时先下载并执行JS，期间HTML的解析暂停 -->
+        <!--     <script src="./1.js"></script> -->
+
+        <!-- defer:在HTML解析期间同步下载JS文件，当HTML解析完成时再开始执行JS，表现为DIV中的文字出现了才弹出警告窗 -->
+        <script src="./1.js" defer></script>
+
+        <!-- async：在HTML解析期间阅读到有JS时，先继续解析HTML并同时下载JS文件，当JS文件下载完时，停止HTML解析而开始执行JS，执行完JS后重新开始HTML的解析，但这次实验中的HTML结构不够长，一下子就解析完了，所有没有产生效果。 -->
+        <!-- <script src="./1.js" async></script> -->
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <!-- 设置一些HTML内容用于JS执行时间的参照物 -->
+    <div>
+        1111
+    </div>
+
+</body>
+
+</html>

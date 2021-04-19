@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 简简单单写点数据类型用来测试typeof()函数 */
+        var a=1;/* number */
+        var b="b";/* String */
+        var c=[1,2,3,4];/* object */
+        var d=function( ){}/* function */
+        var e=true;/* boolean */
+        var f;/* undefined */
+        var g=null;/* object，但这个是错误的检测结果因为Object也是存储为00开头/* undefined */ 
+        /* 分别测试typeof函数能检测的数据类型 */
+        var h ="";/* String */
+        console.log(typeof(a));
+        console.log(typeof(b));
+        console.log(typeof(c));
+        console.log(typeof(d));
+        console.log(typeof(e));
+        console.log(typeof(f));
+        console.log(typeof(g));
+        console.log(typeof(h));
+        /* typeof并不能检测出完全正确的结果：例如null成了object */
+        /* typeof能够得到的值：number,string,function,boolean,object,undefined */
+        /* 能够正确检测的：number string boolean undefined */
+    </script>
+</body>
+</html>

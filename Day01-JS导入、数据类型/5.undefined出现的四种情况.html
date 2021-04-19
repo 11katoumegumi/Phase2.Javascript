@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        /* undefine只有一个值，就是undefined，它代表未定义，但一般不会设置值为undefined，所以一般把出现undefined的 结果视作错误的*/
+        /* undefined出现的四种情况： */
+        /* 1声明变量没有赋值，当调用这个变量时，它的值为undefined */
+        var a;
+        alert(a);
+        /* 2当函数需要参数，但调用参数时没有传参，这时候返回undefined */
+        function b(name,gender ){
+            alert(name+gender);
+        }
+        b("jay",);
+        /* 3获取对象的属性值，但没有此属性时，返回undefined */
+        var c={
+            name:"jay",
+            gender:"male"
+        }
+        alert(c.age);
+        /* 4函数没有返回值时，返回的是undefined */
+        function d(num1,num2){
+            var num3=num1+num2;
+
+        }
+        alert(d(1,2));
+    </script>
+</body>
+</html>
