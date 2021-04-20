@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  其他类型转number:使用Number方法转数字
+
+                - 字符串转数字  
+                    - 能转就转 不能转就是NaN 空的和空白字符的就是0
+
+                - boolean转数字
+                    true为1 false为0
+
+                - null和undefined 转数字
+                    null是0  undefined是NaN
+
+                - 对象转数字
+                    - 空数组是0 ，只有一位的数组，把这一位转数字
+                    - 其他全部是NaN */
+
+                    
+        /* 典中典之类型转换之 ()方法 */
+        /* 1字符串转数字 */
+        console.log(Number(""));/* 0 */
+        console.log(Number("  "));/* 0 */
+        console.log(Number("454"));/* 454 */
+        console.log(Number("2s59"));/* NaN */
+        /* 布尔值转数字 */  
+        console.log(Number(true));/* 1 */
+        console.log(Number(false));/* 0 */
+        /* undefined */
+        console.log(Number(undefined));/* NaN */
+        /* null; */
+        console.log(Number(null));/* 0 */
+        /* 对象转数字 */
+        console.log(Number([]));/* 0 */
+        console.log(Number([1]));/* 1 */
+        console.log(Number(["1"]));/* 1 */
+        console.log(Number(["1a"]));/* NaN */
+        console.log(Number(["a"]));/* NaN */
+        console.log(Number([1,2,3]));/* NaN */
+        console.log(Number({}));/* NaN */
+        console.log(Number({name:"Gina"}));/* NaN */
+
+        console.log("--------------------------------------------------------");
+        /* 典中典之类型转换之parseInt()方法 */
+         /* 1字符串转数字 */
+
+         console.log( parseInt(""));/* 0 */
+        console.log( parseInt("  "));/* 0 */
+        console.log( parseInt("454"));/* 454 */
+        console.log( parseInt("2s59"));/* NaN */
+        /* 布尔值转数字 */  
+        console.log( parseInt(true));/* 1 */
+        console.log( parseInt(false));/* 0 */
+        /* undefined */
+        console.log( parseInt(undefined));/* NaN */
+        /* null; */
+        console.log( parseInt(null));/* 0 */
+        /* 对象转数字 */
+        console.log( parseInt([]));/* 0 */
+        console.log( parseInt([1]));/* 1 */
+        console.log( parseInt(["1"]));/* 1 */
+        console.log( parseInt(["1a"]));/* NaN */
+        console.log( parseInt(["a"]));/* NaN */
+        console.log( parseInt([1,2,3]));/* NaN */
+        console.log( parseInt({}));/* NaN */
+        console.log( parseInt({name:"Gina"}));/* NaN */
+        /* parseint方法可以在其中用逗号隔开后再写一个数字，表示用后写数字的进制来解释前面的数字，例如： */
+        console.log(parseInt(110,2))
+        console.log(parseInt(110,6))
+        console.log(parseInt(110,8))
+        console.log(parseInt(110,16))
+    </script>
+</body>
+</html>

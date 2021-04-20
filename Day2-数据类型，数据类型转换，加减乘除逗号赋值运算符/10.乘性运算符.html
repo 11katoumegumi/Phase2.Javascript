@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 乘性操作符可以用来：乘法 除法，求模 */
+        /* 计算之前会把参与计算的两个值都转换成number类型再计算 */
+        console.log(2*2);/* 4 */
+        console.log(-4*4);/* -16 */
+        console.log(-4*-4);/* 16 */
+        console.log(null *-4);/* -0 */
+        console.log(undefined*-4);/* NaN */
+        console.log(undefined*"124");/* NaN */
+        console.log("50"*"10");/* 500 */
+        console.log("20"*10);/* 200 */
+        console.log("abv"*5);/* NaN */
+        console.log(true*5);/* 5 */
+        console.log(false*5);/* 0 */
+        console.log([]*false);/* 0 */
+        console.log([]*[]);/* 0 */
+        console.log([]*{});/* NaN */
+        console.log([2]*[3]);/*  */
+        console.log([4]*{ name:"nihao"});/* NaN */
+        console.log([2,3]*8);/* NaN */
+        console.log(Infinity*[3]);/* Infinity */
+        console.log(Infinity*Infinity);/* Infinity */
+        console.log(Infinity*0);/* NaN */
+         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        /* 除法 */
+        console.log(2/2);/* 1 */
+        console.log(-4/4);/* -1 */
+        console.log(-4/-4); /* 1 */
+        console.log(null /-4); /* 0 */
+        console.log(undefined/-4); /* NaN */
+        console.log(undefined/"124"); /* NaN */
+        console.log("50"/"10"); /* 5 */
+        console.log("20"/10); /* 2 */
+        console.log("abv"/5); /* NaN */
+        console.log(true/5); /* 0.2 */
+        console.log(false/5); /* 0 */
+        console.log([]/false); /* NaN */
+        console.log([]/[]);  /* NaN */
+        console.log([]/{});  /* NaN */
+        console.log([2]/[3]); /* 0.66666666 */
+        console.log([4]/{ name:"nihao"}); /* NaN */
+        console.log([2,3]/8); /* NaN */
+        console.log(Infinity/[3]); /* Infinity */
+        console.log(Infinity/Infinity); /* NaN */
+        console.log(Infinity/0); /* Infinity */
+
+        /* 求模 */
+        console.log(8 % 3) //2
+        console.log(8 % -3) //2
+        console.log(-8 % 3) //-2
+        console.log(-8 % -3) //-2
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 数字转字符串 */
+        console.log(String(1));/* 1 */
+        console.log(String(1.1));/* 1.1 */
+        console.log(String(454)); /* 454 */
+        console.log(String(-5.5)); /* -5.5 */
+        /* 布尔值转字符串 */  
+        console.log(String(true)); /* true */
+        console.log(String(false)); /* false */
+        /* undefined */
+        console.log(String(undefined)); /* undefined */
+        /* null; */
+        console.log(String(null)); /* null */
+        /* 对象转字符串 */
+        console.log(String([])); /* (空字符串) */
+        console.log(String([1])); /* 1 */
+        console.log(String(["1"])); /* 1 */
+        console.log(String(["1a"])); /* 1a */
+        console.log(String(["a"])); /* a */
+        console.log(String([1,2,3])); /* 1,2,3 */
+        console.log(String({})); /* [object Object]
+ */
+        console.log(String({name:"Gina"})); /* [object Object]
+ */     
+
+        /* Tostring方法基本和上面一样，但是undefined和null没有toString方法 */
+        console.log( (1).toString());/* 1 */
+        console.log( (1.1).toString());/* 1.1 */
+        console.log( (454).toString()); /* 454 */
+        console.log( (-5.5).toString()); /* -5.5 */
+        /* 布尔值转字符串 */  
+        console.log( (true).toString()); /* true */
+        console.log( (false).toString()); /* false */
+        /* undefined */
+       /*  console.log( (undefined).toString());  */
+        /* null; */
+  /*       console.log( (null).toString());  */
+        /* 对象转字符串 */
+        console.log( ([]).toString()); /* (空字符串) */
+        console.log( ([1]).toString()); /* 1 */
+        console.log( (["1"]).toString()); /* 1 */
+        console.log( (["1a"]).toString()); /* 1a */
+        console.log( (["a"]).toString()); /* a */
+        console.log( ([1,2,3]).toString()); /* 1,2,3 */
+        console.log( ({})); /* [object Object]
+ */
+        console.log( ({name:"Gina"}).toString()); /* [object Object]
+ */     
+    </script>
+</body>
+</html>

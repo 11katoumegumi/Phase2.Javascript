@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 简简单单写点初始样式 */
+        #back{
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <!-- 布尔值只有两个值，true表示正确,false表示错误 -->
+    <!-- 简简单单写点HTML结构 -->
+    <div id="back"></div>
+    <button id="btn">click me</button>
+    <script>
+        /* 1获取元素 */
+        var odiv=document.getElementById('back');
+        var obtn=document.getElementById('btn');
+        /* 2设置变量并绑定点击事件 */
+        var bln=true;
+        obtn.onclick=function(){
+            if(bln){
+                odiv.style.backgroundColor="salmon"
+                bln=false;
+            }else{
+                odiv.style.backgroundColor="lightgreen";
+                bln=true;
+            }
+
+        }
+    </script>
+</body>
+</html>

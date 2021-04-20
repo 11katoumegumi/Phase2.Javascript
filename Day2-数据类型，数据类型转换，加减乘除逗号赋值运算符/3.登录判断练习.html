@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <!-- 写一下HTML结构：两个输入框一个登录按钮 -->
+    <label>用户名：<input type="text" id="username"></label>
+    <label>密　码：<input type="text" id="password"></label>
+    <button id="btn">登录</button>
+    <script>
+    /* 第一步先获取DOM元素 */
+        var oUsername=document.getElementById('username');
+        var oPassword=document.getElementById('password');
+        var oBtn=document.getElementById("btn");
+    /* 第二步绑定点击事件 */
+        oBtn.onclick=function(){
+            /* 第三步获取输入框值 */
+            var uservalue=oUsername.value;
+            var pwvalue=oPassword.value;
+            /* 第四步判断用户名和密码是否正确 */
+                if(uservalue==="xiaoli"){
+                    if(pwvalue==="123456"){
+                            alert("登录成功");
+                    }else{alert("密码错误");}
+                }else{alert("用户名错误")}
+        }
+    </script>
+</body>
+</html>

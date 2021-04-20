@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 加法操作符 */
+        /* 当两个数字相加时，将他们相加，当字符串与其他东西相加时，会将它们拼接在一起形成新字符串 */
+        console.log(1 + 6); /* 7 */
+        console.log("21" + 6); /* 216 */
+        console.log(undefined + 6); /* NaN */
+        console.log(undefined + "6"); /* undefined6 */
+        console.log(null + "6"); /* null6 */
+        console.log(null + 6); /* 6 */
+        console.log([] + "acc"); /* acc */
+        console.log({} + {}); //[obejct object][object object]
+        console.log(undefined + null); /* NaN */
+
+
+        /* 减法 */
+        console.log("3" - 1) //2
+        console.log("3" - "1") //2
+        console.log("3" - "1a") //NaN
+        console.log(null - true) //-1
+        console.log(null - undefined) //NaN
+        console.log([] - []) //0
+        console.log([2] - []) //2
+        console.log({} - []) //NaN
+
+        
+        /* Infinity运算 */
+        console.log(Infinity * Infinity) //Infinity
+        console.log(Infinity + Infinity) //Infinity
+        console.log(Infinity - Infinity) //NaN
+        console.log(Infinity / Infinity) //NaN
+        console.log(Infinity % Infinity) //NaN
+
+        console.log(Infinity * -Infinity) //-Infinity
+        console.log(Infinity + -Infinity) //NaN
+        console.log(Infinity - -Infinity) //Infinity
+        console.log(Infinity / -Infinity) //NaN
+        console.log(Infinity % -Infinity) //NaN
+    </script>
+</body>
+
+</html>

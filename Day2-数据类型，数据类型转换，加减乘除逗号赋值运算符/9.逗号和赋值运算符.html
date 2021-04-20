@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 逗号运算符是二元运算符，它先执行左侧的操作，再执行右边的操作，最后返回右侧操作的得的值 */
+        /* 此操作返回最后的8，所以a等于8 */
+        var a = (1, 5, 3, 2, 4, 8);
+        console.log(a);
+        /* 由于返回右边的值，即使i已经不满足条件了，也会继续执行 */
+        for (var i = 0, j = 0; i < 2, j < 3; i++, j++) {
+            console.log(i + j);
+        }
+        /* 逗号运算符还可以用来变量的连续赋值 bcd虽然有值，但并没有被声明*/
+        var a=1,b=2,c=3,d=4;
+
+        /* 赋值操作符：=，左侧必须是变量，对象属性，数组元素，是可以把右侧的值赋值给左边的变量的操作 */
+        /* 还可以连续赋值： */
+        var a = b = c = d = e = f =100;
+        /* 赋值运算符也有返回值 */
+        if(c=1){
+            console.log(c);
+        }
+    </script>
+</body>
+
+</html>
