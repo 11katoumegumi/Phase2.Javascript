@@ -7,16 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="ipt" >
+    <input type="text" id="ipt" value="0">
     <button id="btn">+2s</button>
     <script>
         var oipt=document.getElementById("ipt");
         var obtn=document.getElementById("btn");
-        var a=0;
+        var a=60;
+        
         obtn.onclick=function(){
-            a=a+2;
-            oipt.value=a;
-            console.log(a); 
+            var b=parseInt(oipt.value);
+            b=b+2;
+            oipt.value=b;
+            console.log(b); 
         }
     </script>
 </body>
