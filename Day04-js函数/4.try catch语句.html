@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<body>
+    <script>
+        /*  在js中操作不当时，会出现许多错误，其中包括
+        SyntaxError，语法错误,
+        ReferenceError,调用未定义的函数,
+        TypeError,值的类型错误  */
+
+        /* 语法错误例子  */
+        /*  console.log(a;) */
+
+        /* 调用未定义的函数错误 */
+        /* console.log(b); */
+
+        /* 值的类型错误 */
+        /* var oLis = document.getElementsByTagName("li");
+        oLis.style.color = "red"; */
+
+        /* try{}catch(e){}finally */
+
+        try{
+            throw new Error("发现错误");
+        }catch(e){
+            console.log(e);
+        }finally{
+            console.log(1);
+        }
+    </script>
+</body>
+
+</html>

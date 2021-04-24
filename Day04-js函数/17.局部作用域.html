@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 局部作用域：通常用函数划分，函数的内部作用于成为局部作用域 */
+
+        /* 全局变量a */
+        var a=1;
+        function fn1(){
+            /* 局部可以访问全局的变量 */
+            console.log(a);//1
+            var b=2;
+            a=7;/* 如果变量命重复了以自己的为准，并且做了修改*/
+            console.log(a);
+            function fn2(){
+                console.log(1);
+            }
+        }
+        console.log(a)//7/* a已经在局部变量中被修改，影响到了全局变量 */
+        console.log(b);//b is not defined   /* 外部不能访问函数的内部变量 */
+        console.log(fn2())//外部不能调用局部里的函数
+    </script>
+</body>
+</html>

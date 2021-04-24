@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 如果需要的话函数可以设置返回值，当不设置返回值时默认返回undefined
+            函数的执行： 1.完成特定的功能，不用做出反馈，不用返回值
+                        2.执行一段代码后，得到一个结果，需要吧这个结果返回，可以给函数设置返回值
+        */
+
+        /* 情况1，不返回值 */
+        function fn1(){
+            console.log(1);
+        }
+        console.log(fn1());//undefined
+
+        /* 情况2,执行完代码后返回值 */
+
+        function sum(a,b,c){
+            return a+b+c
+        }
+        console.log(sum(1,2,2));
+
+        /* return除了能够返回值，还可以中断函数执行 */
+        function fn2(){
+            console.log(1);
+            console.log(2);
+            console.log(3);
+            return 0;
+            console.log(4);
+            console.log(5);
+        }
+        fn2()
+    </script>
+</body>
+
+</html>

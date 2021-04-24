@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 函数的参数分为形参和实参
+        ··形参，指function(形参1,形参2,形参3){}在function后跟随的小括号中的参数，没有实际意义，用于传入参数。
+        ··实参，调用函数时输入的参数，有实际意义，给函数传入真正的值
+    -->
+
+    <!-- 当传入的实参不够形参多时，多于的形参的值为undefined。
+         当传入的实参多于形参时，多于的实参会被无视。      
+        
+     -->
+    <script>
+        function sum(a,b,c){
+             alert(a+b+c);
+             console.log(c)
+        }
+        /* 传入的实参不够时 */
+        sum(1,2);//NaN
+        sum(1,2,3,4,5);
+    </script>
+</body>
+</html>

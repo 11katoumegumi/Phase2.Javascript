@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*         
+        var price= prompt("请输入单价");
+        var count= prompt("请输入数量");
+        if(price!=0&&count!=0){
+            var total=price*count;
+            var a= prompt("您本次消费"+total+"元,请输入金额付款，稍后给您找零。");
+            if(a-total>0){
+            var b=a-total;
+            alert("找您"+b+"元，请收好！");
+            alert("欢迎下次光临！");
+        }else{
+            alert("钱不够!");
+        }
+        }else{
+            alert("输入错误!请重新输入!");
+        }
+         */
+
+
+        var input=prompt("欢迎光临银行，请输入数字选择功能（1.查询余额，2.取钱，3.转账，4.退出）");
+        if(input>0&&input<5){
+            switch(parseInt(input)){
+                case 1:
+                    alert("你的余额为0");
+                    break;
+                case 2:
+                    alert("你没钱可取了");
+                    break;
+                case 3:
+                    alert("天地银行转账中");
+                    break;
+                case 4:
+                    alert("退出成功！");
+                    break;
+            }
+        }else{
+            alert("输入错误！")
+        }
+    </script>
+</body>
+</html>

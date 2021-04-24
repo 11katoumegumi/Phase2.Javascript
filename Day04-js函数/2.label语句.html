@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <!-- break和continue默认退出最近的循环，但是可以通过label来控制它们退出的循环，使用 break label的形式来使用label语句 -->
+    <!-- 在循环前加一个label: 即可给循环添加label -->
+  <script>
+        outer: for (var i = 0; i < 10; i++) {
+            inner: for (var j = 0; j < 10; j++) {
+                if(i==8){
+                    break inner;
+                }
+                console.log(i,j)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* break和continue属于循环控制语句，在循环中遇到break时，会直接退出循环，不在执行剩下的部分，当遇到continue时，会跳过这一次循环，快进到下一次循环 */
+        /* 注意：在while中使用continue时要注意将变量的值改变，否则会很容易进入死循环 */
+
+        
+        /* 简简单单写个break */
+        for (var i = 0; i < 10; i++) {
+            
+            if(i===5){
+                break;
+            }
+            console.log( i)
+        }
+        /* 简简单单写个continue */
+        for (var i = 0; i < 10; i++) {
+            
+            if(i===5){
+                continue;
+            }
+            console.log( i)
+        }
+    </script>
+</body>
+</html>

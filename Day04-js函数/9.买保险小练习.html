@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           /*
+         * 公司给员工买保险（用户通过此程序查询自己是否符合条件）：
+         * 只要结婚的都买
+         * 没有结婚的男人 25岁以下不买
+         * 没有结婚的姑娘 22岁以下不买
+         */
+        var gender=prompt("性别，男的扣1，女的扣0");
+        var age=prompt("输入你的年龄");
+        if(prompt("是否已婚，已婚扣1，未婚扣0")==1||((gender==1)&&(age>25))||((gender==0)&&(age>22))){
+            alert("可买保险");
+        }else{
+            alert("不可买保险");
+        }
+
+    </script>
+</body>
+</html>
