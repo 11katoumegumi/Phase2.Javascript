@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 全局变量：在整个JS代码中都可以使用的变量。
+             1.在全局作用域中声明的变量是全局变量。
+             2.不声明直接给一个变量赋值（即使是在函数中），它也是一个全局变量。
+             3.在任意作用于给window对象扩展属性和方法，也是属于全局的
+         */
+
+         /* 直接在全局作用域声明变量属于全局变量 */
+         var a =1;
+
+         /* 不声明函数直接复制也是全局变量 */
+          function fn1(){
+              b=1;
+          }
+          fn1()
+          console.log(b);
+
+          /* 用windows对象扩展属性方法也属于全局 */
+          function fn2(){
+              window.c=3;
+          }
+          fn2()
+          console.log(c);
+
+    </script>
+</body>
+</html>

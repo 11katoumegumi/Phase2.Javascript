@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+        //函数在声明的时候已经确定了作用域链（作用域链并不完整）
+        //作用域链上都是各段代码的变量对象，但是fn并没有调用，所有fn的变量对象并没有生成
+        //当fn调用的时候，只是把自己的变量对象添加到了作用域链的头部，完成了整个作用域链
+        var a=3;
+        function fn1(){
+            console.log(a);//3,自己作用域内没有，向作用域链上层找，所有在全局作用域中找到a
+        }
+
+
+        function fn2(){
+            var a=4;
+            fn1();//3局部作用域只在自己被定义时决定，在调用时不会再次影响。
+        }
+        fn2()
+
+        /* 
+            作用域链：
+            1.作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问
+            2.作用域链上都是变量对象组成的，
+            3.作用域链是在函数声明的时候就确定了，但是因为函数没有调用，所以作用域链不完整
+            4.当函数执行的时候，执行上下文中创建了变量对象，把当前的变量对象添加到已经存在作用域链的最前端，完成整个作用域链
+            5.作用域链的最前端是执行上下文的变量对象，最末端是windows对象
+            6.解析变量的时候是沿着作用域一级一级搜索的过程，如果到windows也没找到，则直接报错。
+        
+        */
+        /*  */
+    </script>
+</body>
+</html>

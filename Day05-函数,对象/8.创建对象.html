@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 创建对象：1字面量创建，2实例化构造函数创建
+            对象的属性：对象中每个成员被称为属性
+        */
+
+        /* 1字面量发放创建对象 */
+        var obj1={};
+        console.log(obj1);
+        /* 字面量方法在创建对象的时候就可以直接把属性书写在对象中 */3
+        var obj2={
+            //对象的属性，对对象状态的描述
+            name:"114514",
+            age:"15",
+            /* 也是对象的属性，可以被调用，称为方法 */
+            call:function(){
+                console.log("dadianhua" );
+            }
+        }
+        /* 创建完对象后可以在此给对象扩展属性和方法 */
+        obj2.floor="4";
+
+
+
+        /* 实例化构造函数的方法 */
+        var obj3=new Object();
+        
+        /* 实例化创建对象方法，不能在创建的时候扩展属性，但是可以直接给对象添加 */
+        obj3.name="xiaoli"
+        obj3.eat=function(){
+            console.log("晚饭")
+        }
+
+    </script>
+</body>
+</html>

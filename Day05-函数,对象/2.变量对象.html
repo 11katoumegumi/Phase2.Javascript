@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 执行上下文的第二步,构建变量对象，就是将代码中所有的变量收集起来构成一个对象，统一管理方便之后使用 */
+        (function () {
+            console.log(a); /* 执行函数时已经构建完成变量对象,所以a可以被打印，但没有执行赋值语句所以还是undefined */
+            var a = 1; /* 对A赋值 */
+            console.log(a); //1
+        })()
+
+        /*  1.变量对象是在本段代码中储存了上下文中定义的变量，函数。
+            2.变量对象分为全局变量对象和局部变量对象。
+            3.全局变量对象就是Window对象，所有的全局变量和函数都是window对象的属性和方法
+            4.进入局部代码,创建局部变量对象,首先变量对象包含了所有的形参和实参
+            5.第二步 把所有的函数以键值对的形式放在变量对象中,如果发生和形参有重名时直接替换
+            6.第三步 把所有声明的变量放到函数对象中,值都是undefined
+
+        */
+        /*    //简简单单写个例子
+               var VO = {
+                   a:1,
+                   //c:2,
+                   arguments:[1,2,3,4],
+                   c:function(){},//函数是一体的，所有全部直接提升
+                   b:undefined,//所有变量声明都是只提升声明，不会赋值
+                   d:undefined,
+                   //c:undefined//提升变量的时候，如果和函数或形参同名，则不会覆盖之前的值
+
+               }
+           */
+    </script>
+</body>
+
+</html>

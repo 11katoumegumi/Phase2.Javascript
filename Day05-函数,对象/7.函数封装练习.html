@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.求1 - n之间所有数的和
+/*         function sum(n){
+            var a=0;
+            for (var i = 0; i <= n; i++) {
+                a+=i;
+            }
+            return a;
+        }
+        //函数调用(可以确定是否有返回值，还有传递的参数)
+        sum(100);
+ */
+
+
+        // 求n - m之间所有数的和
+     /*    function sum(m,n){
+            var a=0;
+            for (var i = m; i <= n; i++) {
+                a+=i;
+            }
+            return a;
+        }
+
+        //函数调用(可以确定是否有返回值，还有传递的参数)
+        sum(1,100); */
+
+        // 圆的面积
+       /*  function area(r){
+            return (r*r*3.14);
+        }
+        console.log(area(5)); */
+        // 求2个数中的最大值
+     /*        function bigger(n,m){
+                if(n>m){
+                    return n;
+                }else{
+                    return m;
+                }
+            }
+            console.log(bigger(3,2)); */
+        // 求3个数中的最大值
+        /* function bigger3(n,m,z){
+                if(n>m&&m>z){
+                    return n;
+                }else if(n<m&&m>z){
+                    return m;
+                }else{
+                    return z;
+                }
+            }
+            console.log(bigger3(3,9,5)); */
+        // 判断一个数是否是素数(又叫质数， 只能被1和自身整数的数)
+            /* function prime(n){
+                for (var i = 2; i < n; i++) {
+                    if(n%i==0){
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+            }
+            console.log(prime(12)); */
+        // 求任意个数的最大值
+           /*  function max(a,b,c){
+                var d=0;
+                for (var i = 0; i < arguments.length; i++) {
+                    if(arguments[i]>arguments[i+1]){
+                        b=arguments[i];
+                    }else{
+                        b=arguments[i+1];
+                    }
+                    return b;
+                }
+                console.log(b);
+            } */
+        // 求任意个数的和
+        function sumall(a,b,c){
+                var f=0;
+                for (var i = 0; i < arguments.length; i++) {
+                    f+=arguments[i];
+                }
+                console.log(f);
+            }
+    </script>
+</body>
+
+</html>

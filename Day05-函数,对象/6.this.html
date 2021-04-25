@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* this:
+            1.是一个指针型的变量，代表的是点钱运行环境
+            2.出了函数以外，全局也有自己的this，指向window对象
+            3.没一个函数都有自己的this,只想当前函数的调用者，如果没有，则指向window
+
+
+            函数的调用方式：
+            1.默认调用，自己调用
+            2。上下文对象调用
+        */
+        /* 默认调用 */
+
+        function fn1(){};
+        fn1();//this指向window
+
+        /* 上下文对象调用 */
+        obj={
+            do:function(){
+
+            }
+        }
+        obj.do();//obj是上下文对象，do被上下文对象调用，所以this指向obj
+
+
+        /* 隐式丢失 */
+
+        fn2=obj.do;
+        fn2();//this指向window
+
+
+        /* 绑定事件的this一般指向绑定事件的对象 */
+        document.onclick=function(){
+            console.log(this);
+        }
+        //以上代码被触发时其实是执行了document.onclick()，所以this指向Document
+
+        /* 练习 */
+       /*  var x = 1;
+        var obj = {
+            f: function () {
+                console.log(this.x);
+            },
+            x: 2,
+        };
+
+        (obj.f = obj.f)(); //赋值操作符返回了 obj.f的这个函数，这个函数自己调用，则this指向window
+        (false || obj.f)(); //隐式丢失返回window
+        (obj.f, obj.f)(); //隐式丢失返回window
+        (obj.f)() //小括号只是执行提升优先级但是并不会执行运算，所以和obj.f()一样 */
+
+    </script>
+</body>
+</html>
