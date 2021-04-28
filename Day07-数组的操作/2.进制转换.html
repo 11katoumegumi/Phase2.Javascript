@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 用数组完成二进制转换 */
+  /*       function to2b(num) {
+            var a = null;
+            var arr = [];
+            var re = "";
+            while (num > 0) {
+                a = num % 2;
+                arr.push(a);
+                num = parseInt(num / 2);
+            }
+            while (arr.length > 0) {
+                re += arr.pop();
+            }
+            return re;
+        }
+        to2b(100); */
+        //不用数组
+          function to2b(num) {
+              var a = null; 
+              var str = " ";
+              var re=null;
+              while (num > 0) {
+                  a = num % 2;
+                  str+=a;
+                  num=parseInt(num/2);
+              }
+              console.log(str);
+               var c=new String();
+              for (var i = str.length-1; i>0; i--) {
+                 c+=str[i];
+              }
+              console.log(c);
+          } 
+          to2b(100);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [];
+
+        function findMonkeyKing(num, n) {
+
+            for (var i = 1; i <= num; i++) {
+                arr.push(i);
+            }//按照输入的长度生成数组
+
+            while (arr.length > 1) {//循环到数组里只剩一个值而已
+                for (var j = 0; j < n - 1; j++) {//往后推两个再踢出一个
+                    arr.push(arr.shift());//
+                }
+                arr.shift();
+            }
+            return arr[0];
+        }
+        console.log(findMonkeyKing(10, 3));
+    </script>
+</body>
+
+</html>

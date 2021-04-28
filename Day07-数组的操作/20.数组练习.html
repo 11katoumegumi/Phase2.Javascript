@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //将数组的0去掉
+        /* var arr1=[1,0,2,3,0,4,5,6,0,7,0];
+        arr1.forEach(function(item,index,array){
+            if(item===0){
+                arr1.splice(index,1);
+            }
+        })
+        console.log(arr1); */
+
+        //数组排序去重
+        /* var newArr=null;
+        var a=null;
+        var arr2=[8,7,2,6,1,4,5,1,6,7,0,2,4,9,6];
+        arr2.sort(function(a,b){
+            return a-b;//先排序一下
+        })
+        newArr=arr2.filter(function(item,index){
+            return item!=arr2[index+1];
+        })
+        console.log(newArr) */
+        //返回数组的最大最小值
+
+        
+     /*    var arr2=[8,7,2,6,1,4,5,1,6,7,0,2,4,9,6];
+        var big=arr2[0];
+        var sma=arr2[0];
+        arr2.forEach(function(item,index){
+            if(big<item){
+                big=item;
+            }
+            if(sma>item){
+                sma=item;
+            }
+            return big,sma;
+        })
+        console.log(big,sma) */
+        //求一组数中的所有数的和和平均值
+        var arr2=[8,7,2,6,1,4,5,1,6,7,0,2,4,9,6];
+        var sum=0;
+        var re=arr2.forEach(function(item,index){
+            sum+=item;
+        })
+        console.log(sum);
+        console.log(parseInt(sum/arr2.length));
+        //求一组数中的最大值和最小值，以及所在位置
+
+        var arr2=[6,7,2,6,1,4,5,1,6,7,0,2,4,9,6];
+        var big=arr2[0];
+        var sma=arr2[0];
+        var indexbig=0;
+        var indexsma=0;
+        arr2.forEach(function(item,index){
+            if(big<item){
+                big=item;
+                indexbig=index;
+            }
+            if(sma>item){
+                sma=item;
+                indexsma=index;
+            }
+            return big,sma;
+        })
+        console.log(indexbig);
+
+        //翻转数组
+        var arr=new Array();
+        var arr2=[8,7,2,6,1,4,5,1,6,7,0,2,4,9,6];
+        while(arr2.length>0){
+            arr.unshift(arr2.shift());
+        }
+        console.log(arr);
+
+    </script>
+</body>
+</html>

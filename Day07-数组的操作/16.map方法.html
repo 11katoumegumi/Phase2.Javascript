@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* map()方法也是用来遍历数组
+            -遍历之后会返回一个新的长度和原数组一样的数组
+            -原数组每次进入回调函数执行，当前回调函数的返回值就是对应位置的值！！！
+        
+            对比forEach():它们都是遍历数组，forEach没有返回值，而map会返回一个新数组。
+
+        */
+        /* var arr=[1,2,3,4,5,6,7];
+        var arrmap=arr.map(function(item,index,array){
+            return item+5;
+        })
+        console.log(arrmap);
+ */
+        /* 男的改为tom,女的改为jean */
+        var persons = [
+            {name:"lily1",sex:"女",age:18},
+            {name:"lily2",sex:"男",age:19},
+            {name:"lily3",sex:"女",age:11},
+            {name:"lily4",sex:"男",age:28},
+            {name:"lily5",sex:"女",age:22},]
+
+        var personss=persons.map(function(item,index,array){
+            if(item.sex==="男"){
+                item.name="Tom";
+               
+            }else{
+                item.name="Jean";
+            }
+            return item;
+        })
+        console.log(personss);
+    </script>
+</body>
+</html>

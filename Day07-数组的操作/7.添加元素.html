@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 添加元素有四种方法:
+            1.push()，在数组末插入一个值，返回插入值后的长度
+            2.unshift()，在数组头部插入一个值，返回插入值后的长度
+            3.splice(参数1，参数2，参数3)，在splice方法中，参数3之后的值是在之前删除的位置添加值，当不删除数值直接插入值时，也是添加元素
+            4.concat(),用于两个数组合并，如果一方是多个数字，也可以放入到另一方的数组中。返回一个新数组，不会影响旧数组
+        */
+
+        /* push */
+        var a=[1,2,3,5,7,6]
+        console.log(a.push(55));//7
+        console.log(a);//Array(7)
+
+        /* unshift */
+        var b=[1,2,3,4,5,6];
+        console.log(b.unshift(6));
+        console.log(b)
+
+        /* splice添加 */
+        var c=[1,2,3,4,5,6];
+        console.log(c.splice(3,0,9,9,9,9,9,9));
+        console.log(c);
+
+        /* concat() */
+        var d=[1,2,3,4,5,6];
+        var dd=[9,9,9,9];
+        console.log(d.concat(dd));
+        console.log(d)
+    </script>
+</body>
+</html>

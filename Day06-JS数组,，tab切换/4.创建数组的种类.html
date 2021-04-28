@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //普通数组
+        var arr1=[1,2,3,4,"a"];
+        console.log(arr1[0]) //可以通过下标的方式获取数组的值
+        console.log(arr1[1])
+        console.log(arr1[1 + 1]) //中括号操作符中 是可以进行运算的
+        console.log(arr1[10]) //undefined 其实就是获取对象的没有的属性 返回undefined
+        
+
+        //多维数组
+        var arr2=[1,[2],[3,4]];
+        var arr3=[1,[2,[3,[4,[5,6]]]]];
+        console.log(arr2);
+        console.log(arr3);
+        console.log(arr2[2][1]);
+        console.log(arr3[1][1][1][1][0]);
+
+        //空位数组
+        //数组内部如果以逗号结尾，则忽略
+        var arr4=[1,2,3,,5,6,]
+        console.log(arr4);
+        /* 空位数组的空位值为Undefined */
+        console.log(arr4[3]);
+
+
+        //伪类数组（伪数组，类数组）
+        //只是像数组（属性名从0开始并递增而且有length属性）不是真数组（例如argunment)
+        var likeArr={
+            0:"a",
+            1:"b",
+            2:"c",
+            3:"d",
+            length:4
+        }
+        console.log(likeArr);
+        console.log(likeArr[0])
+        console.log(likeArr.length)
+   </script>
+</body>
+</html>

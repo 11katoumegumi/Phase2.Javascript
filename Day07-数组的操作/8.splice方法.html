@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* splice方法有四种效果：删除，添加，替换
+            -删除：以第一个参数为起点，删除长度为第二个参数的数组内容，以数组的形式返回删除的内容
+            -添加：第二个参数设置为0，并设置之后的参数，即可不删除任何数组值，添加自己想添加的值
+            -替换：先删除后增加=替换.
+        */
+       /* 删除 */
+        var arr3=[1,2,3,4,5,6];
+        var re =arr3.splice(2,2);
+        console.log(re)
+
+        /* 添加 */
+        var c=[1,2,3,4,5,6];
+        console.log(c.splice(3,0,9,9,9,9,9,9));
+        console.log(c);
+
+        /* 替换 */
+        var arr=[1,2,3,4,5];
+        console.log(arr.splice(1,2,9,9));
+        console.log(arr)
+        /* 第一个参数为负值时，选定最后一个元素作为起点向右 */
+        var arr2=[1,2,3,4,5,6];
+        var re2 =arr2.splice(-2,2);
+        console.log(re2)
+        console.log(arr2);
+        /* 第二个参数为负数时，等于0，不删除 */
+        var arr4=[1,2,3,4,5,6];
+        var re4 =arr4.splice(2,-2);
+        console.log(re4)
+        console.log(arr4);
+    </script>
+</body>
+</html>

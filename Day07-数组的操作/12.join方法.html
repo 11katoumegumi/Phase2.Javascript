@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* join方法用于讲数组转化为字符串
+            -可以传入参数来代替数组中的逗号
+            -不会改变原数组，返回一个字符串
+            -其实是把每一个元素都调用了ToString()方法
+        */
+
+        var arr=[30294,76521,66023,20292,156,18,95,3];
+        console.log(arr.join());//不传入参数时直接转化为字符串
+        console.log(arr);
+        console.log(arr.join("*"));
+        console.log(arr.join(""));//传入空字符串可以去除数字之间的间隔；
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            every()：
+                -书写方法和forEach()格式一致
+                -会把数组中的每一个值都拿到回调函数中去，如果函数返回false则停止遍历，返回true则继续遍历
+                -如果全局遍历结束，回调函数都返回true，则整个every方法返回true
+
+            some():
+                -书写方法和forEach()格式一致
+                -会把数组中的每一个值都拿到回调函数中去，如果函数返回true则停止遍历，返回false则继续遍历
+                -如果全局遍历结束，回调函数只要有一个返回true，则整个some方法返回true
+        */
+
+        var persons = [
+            {name:"lily1",sex:"女",age:18},
+            {name:"lily2",sex:"男",age:19},
+            {name:"lily3",sex:"女",age:11},
+            {name:"lily4",sex:"男",age:28},
+            {name:"lily5",sex:"女",age:22},
+        ];
+    /* 用every判断是否所有人都满18 */
+
+/*         var re=persons.every(function(item,index,array){
+            console.log(persons[index])
+            return item.age>=18
+            })
+        console.log(re); */
+
+    /* 用some判断是否有人未满18 */
+
+    var re=persons.some(function(item,index,array){
+        console.log(persons[index])
+            return item.age<18})
+        console.log(re);
+    </script>
+</body>
+</html>

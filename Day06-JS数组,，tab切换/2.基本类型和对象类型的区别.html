@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 基本类型和对象类型：
+            基本类型：
+                number string null undefiend boolean
+            对象类型:
+                object function array
+
+            分类的原因：
+            储存的位置不一样（基本在栈，对象在堆）   
+
+            基本类型的特点：
+                1.基本类型储存在栈内容中，可以直接操作当前的值
+                2.基本类型值不可变（不能被改变而不是不能被重新赋值
+                3.不能给基本类型值添加属性和方法
+                4.基本类型的比较就是栈中值的比较
+
+            对象类值的特点：
+                1.类型对象值是同时存在栈内容和堆内存，在堆中存储对象的值，在栈中存储对象的引用地址，在用户访问时先访问引用地址，才找到堆中的值。
+                2.对象类型的值是可变的
+                3.对象类型值的赋值和比较都是地址的赋值和比较
+         */ 
+
+
+         /* 基本类型对象的值不可变 */
+        var a="abc";
+        console.log(a);
+        var uc=a.toUpperCase();
+        console.log(uc);
+        /* 不能给基本类型值添加属性和方法 */
+        a.test="nihao";
+        /* 上面这句其实是执行了以下的代码 */
+/*         _a=new String();
+        _a.test="nihao";
+        delete _a;//觉得太多余所以又删掉了 */
+        a.do=function a(){};
+        console.log(a.test);
+        console.log(a.do);
+
+        /* 引用类型的值是可变的 */
+        var arr=[1,2,3]
+        arr[1]=5;
+        console.log(arr);
+        /* 对象类型值的赋值和比较都是地址和赋值的比较 */
+
+        var obj3={};
+        var obj4={};
+        console.log(obj3===obj4);//false
+    </script>
+</body>
+
+</html>

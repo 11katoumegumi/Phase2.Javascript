@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 截取数组:
+            1.splice:删除原数组的部分元素，以数组的形式返回删除的元素，也属于截取
+                -参数2如果为空，则默认到末尾；
+                -可以从某个位置开始，截取选定的长度，
+                -对原数组有印象
+            2.slice:用于截取数组
+                -参数1，截取开始的位置
+                -参数2，截取结束的位置（不包含这个位置
+                -不会影响原有的数组
+        */
+
+        /* splice */
+        var arr=[1,2,3,4,5,6,7,8,9];
+        console.log(arr.splice(2,4));
+        console.log(arr);
+        /* slice */
+        var arr2=[1,2,3,4,5,6,7,8,9];
+        console.log(arr2.slice(2,4));
+        console.log(arr2);
+
+        /* slice参数为负数时，从末尾往回数 如果终点在起点面前，则不截取 */
+        var arr3=[1,2,3,4,5,6,7,8,9];
+        console.log(arr3.slice(-6,4));
+        console.log(arr3);
+    </script>
+</body>
+</html>

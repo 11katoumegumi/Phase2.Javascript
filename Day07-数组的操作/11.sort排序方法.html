@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  sort()用于数组的排序
+                -在原数组的基础上对元素进行排序
+                -如果调用时没有传入参数，则会使用字符串的对比方式排序（对位对比ascii码
+                
+                -如果想按照其他顺序排序，则需要想sort方法传递一个比较函数
+                -比较函数有两个参数，比较函数会比较这两个参数
+                -sort内部
+                    -a是后边的值，b是前面的值！！
+                    -return为负数则交换顺序，正数则不交换。
+        */
+
+        /* sort()不传入函数时的排序 */
+/*         var arr=[9,1,22,131,65,63766,40195,55,4,7];
+        var re=arr.sort();
+        console.log(re);
+        console.log(arr);
+        console.log(arr===re);
+ */
+        /* sort有参数的情况下 */
+        var arr2=[30294,76521,66023,20292,156,18,95,3];
+        var re2=arr2.sort(function(a,b){
+            /* -a是后边的值，b是前面的值！！
+            -return为负数则交换顺序，正数则不交换。 */
+            return b-a;//逆序
+            //return a-b;//顺序
+        })
+        console.log(re2);
+
+        //对象属性的排序
+        var persons = [
+            {name:"lily1",sex:"女",age:18},
+            {name:"lily2",sex:"女",age:19},
+            {name:"lily3",sex:"女",age:11},
+            {name:"lily4",sex:"女",age:28},
+            {name:"lily5",sex:"女",age:22},
+        ];
+        persons.sort(function(a,b){
+            return a.age-b.age;
+        })
+        console.log(persons.sort());
+    </script>
+</body>
+</html>

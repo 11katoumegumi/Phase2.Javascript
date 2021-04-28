@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--        
+         数组用字面量来定义：var ArrayName=[a1,a2,a3,a4]
+            还可以实例化构造函数来定义：var ArrayName=new Array();
+        -->
+
+    <script>
+        //用字面量定义
+        var arr=[1,2,3,4];
+        //数组可以保存任意类型的值
+        var arr2=["1",2,true,function(){},null,undefined,[1,2,3,2]];
+        console.log(arr2);
+
+        //实例化构造函数定义
+        var arr3=new Array();
+        //添加值
+        var arr4=new Array("a","b","c");
+        /* 如果构造函数的参数只有一个number时，则这个数字代表数组的长度 */
+        var arr5= new Array(5);
+        console.log(arr5);
+
+        
+    </script>
+
+</body>
+
+</html>
