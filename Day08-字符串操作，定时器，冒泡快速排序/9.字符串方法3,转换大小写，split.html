@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 转换大小写：
+            -toUpperCase;
+            -toLowerCase;
+        */
+/*       var str="NeTKoI,zeTtai,SHINaisA"
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase()); */
+
+        /* split()
+            -将字符串转化为数组
+            -不传入参数时将字符串看为一个整体放入长度为1的数组
+            -传入参数时，放入函数时以参数作为分割符号，分割后放入数组
+        */
+/*         var str="NeTKoI,zeTtai,SHINai,sA"
+        console.log(str.split());//["NeTKoI,zeTtai,SHINai,sA"]
+        console.log(str.split(""));//["N", "e", "T", "K", "o", "I", ",", "z", "e", "T", "t", "a", "i", ",", "S", "H", "I", "N", "a", "i", ",", "s", "A"]
+        console.log(str.split(","));//["NeTKoI", "zeTtai", "SHINai", "sA"] */
+
+
+        /* 字符串翻转 */
+/*         var str="Aut dicta et et molestias."
+        var re=str.split("").reverse().join("");
+        console.log(re); */
+
+        /* trim():去空格
+            trimStart():去掉前面的空格
+            trimEnd():去掉后面的空格 */
+        var str="     Id a consectetur dicta quis eveniet.     ";
+        console.log(str.trim());//去前后
+        console.log(str.trimStart());//去前
+        console.log(str.trimEnd());//去后
+
+        ///s代表空格
+
+        var re=str.replace(/\s/g,"");
+        console.log(re)//Idaconsecteturdictaquiseveniet.
+
+        var q=str.split(" ").join("");
+        console.log(q);//Idaconsecteturdictaquiseveniet.
+    </script>
+</body>
+</html>

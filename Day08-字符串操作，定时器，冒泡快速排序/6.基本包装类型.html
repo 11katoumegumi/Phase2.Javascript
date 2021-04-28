@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 每当读取一个基本类型值的时候，后台会自动创建一个基本包装类型的对象，从而能让我们调用一些方法来操作数据 
+        
+            基本包装类型有：number string boolean
+        */
+       var str="abc";
+
+       var re=str.toUpperCase();
+       /* 执行的伪代码
+        var _str=new String(str);生成一个基本包装类型的对象
+        re=_str.toUpperCase();从对象中调用方法
+        _str=null; /* 执行完后删除对象 
+       */
+
+
+       var str1="1423";
+       str1.hello="world";
+       /* 执行的伪代码 */
+       /* var _str1=new String(str) 
+          _str1.hello=world;
+        _str1=null;
+        
+       */
+    </script>
+</body>
+</html>

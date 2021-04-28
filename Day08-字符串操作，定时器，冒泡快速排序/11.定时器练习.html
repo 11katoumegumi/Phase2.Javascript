@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            border-radius: 50%;
+            position: fixed;
+            left: 0;
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="f"></div>
+    <button id="btn1">冲冲冲</button>
+    <button id="btn2">我要跳车了</button>
+    <script>
+        var of=document.getElementById("f")
+        var obtn1=document.getElementById("btn1");
+        var obtn2=document.getElementById("btn2");
+        var r=30;
+        var moveTimer
+        obtn1.onclick=function(){
+            clearInterval(moveTimer);
+            moveTimer=setInterval(function(){
+                
+                of.style.left=r+"px";
+                r++;
+            },1000/60)
+        }
+        obtn2.onclick=function(){
+            clearInterval(moveTimer);
+        }
+    </script>
+</body>
+</html>
