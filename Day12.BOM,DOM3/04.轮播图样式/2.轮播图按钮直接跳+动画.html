@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #outer{
+           position: relative;
+           margin: 50px auto;
+           width: 507px;
+        }
+        #inner{
+            overflow: hidden;
+            width: 507px;
+        }
+        #con{
+            width: 3535px;
+            display: flex;
+        }
+        img{
+            width: 507px;
+        }
+        p{
+            width: 50px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            background-color: rgba(250, 128, 114,.6);
+            font-size: 40px;
+            color: white;
+            position: absolute;
+
+        }
+        p:hover{
+            background-color: rgb(250, 128, 114);
+        }
+        #previous{
+            left: 0;
+            top: 50%;
+            margin-top: -135px;
+        }
+        #next{
+            right: 0;
+            top:50%;
+            margin-top:-135px
+        }
+        #navidot{
+            display: flex;
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            margin-left:-150px;
+        }
+        #navidot li{
+            width: 20px;
+            height: 20px;
+            background-color: wheat;
+            border-radius: 50%;
+            margin: 10px;
+           
+        }
+        #navidot #active{
+            background-color: skyblue;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="con">
+                <img src="../img/1.jpg" alt="">
+                <img src="../img/2.jpg" alt="">
+                <img src="../img/3.jpg" alt="">
+                <img src="../img/4.jpg" alt="">
+                <img src="../img/5.jpg" alt="">
+                <img src="../img/6.jpg" alt="">
+                <img src="../img/7.jpg" alt="">
+            </div>
+        </div>
+
+        <p id="previous">&lt</p>
+        <p id="next">&gt</p>
+
+        <ul id="navidot">
+            <li id="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var oInner=document.querySelector("#inner");
+        var oPrevious=document.querySelector("#previous");
+        var oNext=document.querySelector("#next");
+        var oImgs=document.querySelectorAll("img");
+        var moveAni=null;
+        var i=0;
+        //按钮直接跳转版
+        oPrevious.onclick=function(){
+            i-=1;
+            if(i<=0){
+                i=4;
+            }
+            oInner.scrollLeft=i*oImgs[0].offsetWidth;
+        }
+        oNext.onclick=function(){
+            i+=1;
+            if(i>=oImgs.length){
+                i=0;
+            }
+            oInner.scrollLeft=i*oImgs[0].offsetWidth;
+        }
+
+        //按钮动画跳转版
+        oPrevious.onclick=function(){
+            clearInterval(moveAni);
+            i--
+            if(i<0){
+                i=4;
+            }
+            var startLocation=oInner.scrollLeft;
+            var endLocation=i*oImgs[0].offsetWidth;
+            var startStep=0;
+            var endStep=40;
+            var everyStep=(endLocation-startLocation)/endStep;
+            moveAni=setInterval(function(){
+                startStep++;
+                if(startStep>=endStep){
+                    clearInterval(moveAni);
+                }
+                startLocation+=everyStep;
+                oInner.scrollLeft=startLocation;
+            },20)
+        }
+        oNext.onclick=function(){
+            clearInterval(moveAni);
+            i++
+            if(i>=oImgs.length){
+                i=0
+            }
+            var startLocation=oInner.scrollLeft;
+            var endLocation=i*oImgs[0].offsetWidth;
+            var startStep=0;
+            var endStep=40;
+            var everyStep=(endLocation-startLocation)/endStep;
+            moveAni=setInterval(function(){
+                startStep++;
+                if(startStep>=endStep){
+                    clearInterval(moveAni);
+                }
+                startLocation+=everyStep;
+                oInner.scrollLeft=startLocation;
+            },20)
+        }
+    </script>
+</body>
+</html>

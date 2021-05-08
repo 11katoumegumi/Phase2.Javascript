@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .box {
+            width: 100px;
+            height: 50px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: hotpink;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">回到顶部</div>
+    <script>
+        var oBox = document.querySelector('.box');
+        //绑定系统滚动条事件，当滚动条只要移动就会触发 触发以后判断
+        window.onscroll = function () {
+            //实时获取滚动条的距离
+            var nowScroll = window.pageYOffset;
+
+            //实时判断
+            if (nowScroll > 500) {
+                oBox.style.display = "block";
+            } else {
+                oBox.style.display = "none";
+            }
+        }
+
+        var timer=null;
+        oBox.onclick=function(){
+            //防止定时器累加每次先清掉
+            clearInterval(timer);
+
+            //获取初始位置（滚动条当前位置
+            var startLocation=window.pageYOffset;
+
+            //获取结束位置
+            var endLocation=0;
+
+            //获取起始步数
+            var startStep=0;
+
+            //获取结束步数
+            var endStep=40;
+            //求每一步走的距离
+            var everyStep=(endLocation-startLocation)/(endStep-startStep);
+
+            //设置每隔一定的时间走一步
+            timer=setInterval(function(){
+
+                startStep++;
+                if(startStep>=endStep){
+                    clearInterval(timer);
+                }
+                startLocation+=everyStep;
+                window.scrollTo(0,startLocation);
+            },10)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            
+        }
+        #box{
+            width: 100%;
+            height: 1200px;
+            background-color: slategrey;
+            overflow: hidden;
+            
+        }
+        #h{
+            color: white;
+            font-size: 70px;
+            text-align: center;
+            margin-top: 200px;
+        }
+        #p{
+            color: white;
+            font-size: 100px;
+            text-align: center;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+        <h1 id="h">Start</h1>
+        <p id="p">Press Start to Chose your Role</p>
+    </div>
+    <script>
+        var oh=document.getElementById("h");
+        var op=document.getElementById("p");
+        var arr=["Warrior","Dark Knight","Paladin","GunBreaker","Samurai","Monk","Sonmernor","RedMage","WhiteMage","BlackMage"]
+        var switch1=false;
+        var dianming=null;
+        oh.onclick=function(){
+        if(switch1){
+            oh.textContent="End";
+            dianming=setInterval(function(){
+                op.textContent=arr[Math.floor(Math.random()*10)];
+                console.log(arr[Math.floor(Math.random()*10)])
+                console.log(Math.floor(Math.random()*10))
+            },100)
+            switch1=!switch1;
+        }else{
+            oh.textContent="Start";
+            clearInterval(dianming);
+            switch1=!switch1;
+        }}
+    </script>
+</body>
+</html>

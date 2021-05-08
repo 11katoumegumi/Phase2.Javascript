@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            通过window.nagigator对象来获取浏览器信息，如名称，版本和系统等
+                -通过window.navigator可以引用该对象，并利用它的属性来读取客户端信息
+                常见属性：
+                    -onLine：表示浏览器是否连接到因特网
+                    -platform：浏览器所在的系统
+                    -userAgent:浏览器的用户代理字符（浏览器信息
+                    
+         */
+        console.log(navigator.onLine);
+        console.log(navigator.platform);
+        console.log(navigator.userAgent);
+
+        //浏览器检测方法
+        //字符串检测法：
+        var ua = navigator.userAgent.toLowerCase();
+        var info = {
+            ie: /msie/.test(ua) && !/opera/.test(ua),
+            op: /opera/.test(ua),
+            sa: /version.*safari/.test(ua),
+            ch: /chrome/.test(ua),
+            ff: /gecko/.test(ua) && !/webkit/.test(ua)
+        }
+        info.ie && console.log("ie");
+        info.op && console.log("op");
+        info.sa && console.log("sa");
+        info.ch && console.log("ch");
+        info.ff && console.log("ff");
+
+        //特征检测法：
+            //特征检测法就是根据浏览器是否支持特定功能来决定相应操作的方式。这是一种非精确判断法。但却是最安全的检测方法
+
+            if(document.documentElement){
+                var w=document.documentElement.clientWidth;
+            }else{
+                var w=document.body.clientWidth;
+            }
+    </script>
+</body>
+
+</html>

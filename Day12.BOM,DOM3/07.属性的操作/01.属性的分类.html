@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">clickme</button>
+    <img src="" alt="" abc="" class="img2" say="how are you">
+    <script>
+        var oImg=document.querySelector('img');
+        /* 
+            oImg是当前获取的DOM节点对象
+            这个节点的属性分为两种：
+                -作为元素节点来说，属性的当时元素上定义的属性
+                -作为js对象来说,每个对象可以拓展自己的属性和方法
+        
+            设置节点的属性：
+                -如果这个属性是标签自有的属性，则执行通过Ele.XXX来获取和设置，但是有的属性和关键字冲突了需要些许改变，比如class，需要写成className;
+
+            设置自定义属性：
+
+        */
+
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick=function(){
+            oImg.src="../../img/1.jpg";
+            oImg.alt="清纯美女";
+            oImg.className="img1";
+
+            //如果想给元素扩展一个自定义属性，不能直接像自有属性一样操作
+            // oImg.abc = "hello"; //把oImg当做一个js对象，设置了abc属性，和元素没有任何关系
+
+            //自定义属性
+            oImg.setAttribute("abc","helloabc");
+
+            console.log(oImg.getAttribute("say"));
+
+            oImg.removeAttribute("say")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            position: relative;
+            width: 1000px;
+            height: 800px;
+            border: 1px solid salmon;
+            margin: 50px auto;
+        }
+
+        #ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45px;
+            height: 45px;
+            background-color: aqua;
+            border-radius: 50%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="ball"></div>
+    </div>
+    <script>
+        var oOuter = document.querySelector("#outer");
+        var oBall = document.getElementById('ball');
+        var l = 50;
+        var t = 80;
+        var flagX = true;
+        var flagY = true;
+        setInterval(function () {
+            if (flagX) {
+                l += 4;
+                if (l >= oOuter.clientWidth - oBall.offsetWidth) {
+                    l = oOuter.clientWidth - oBall.offsetWidth;
+                    flagX = !flagX;
+                }
+            } else {
+                l -= 4;
+                if (l < 0) {
+                    l = 0;
+                    flagX = !flagX;
+                }
+
+            }
+            if (flagY) {
+                t += 2;
+                if (t >= oOuter.clientHeight - oBall.offsetHeight) {
+                    t = oOuter.clientHeight - oBall.offsetHeight;
+                    flagY = !flagY;
+                }
+            } else {
+                t -= 2;
+                if (t <= 0) {
+                    t = 0;
+                    flagY = !flagY;
+                }
+
+            }
+            oBall.style.left = l + "px";
+            oBall.style.top = t + "px";
+
+        }, 10)
+    </script>
+</body>
+
+</html>

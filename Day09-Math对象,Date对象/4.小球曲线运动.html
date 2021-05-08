@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: fixed;
+            width: 88px;
+            height: 88px;
+            background-color: #000;
+            top: 250px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cir"></div>
+    <script>
+        var hori = 0;
+        var vert = 250;
+        var oCir = document.getElementById("cir");
+
+
+        function random(a, b) {
+            return Math.random() * (b - a) + a;
+        }
+        var move = setInterval(function () {
+            hori++;
+            vert++;
+            oCir.style.left = hori + "px";
+            oCir.style.top = (Math.sin(vert * 2 * Math.PI / 360) * 250 + 250) + "px";
+        }, 10);
+        var colorChange = setInterval(function () {
+            var R = random(0, 255);
+            var G = random(0, 255);
+            var B = random(0, 255);
+            oCir.style.backgroundColor = "rgb(" + R + "," + G + "," + B + ")";
+        }, 500)
+    </script>
+</body>
+
+</html>

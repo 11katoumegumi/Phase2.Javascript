@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #f{
+            width: 800px;
+            height:300px;
+            overflow: auto;
+        }
+        /* #z{
+            width: 2000px;
+            height: 300px;
+        } */
+    </style>
+</head>
+<body>
+    <div id="f">
+        <div id="z"></div>
+    </div>
+    <script>
+        /* resize事件，当窗口大小被被改变时触发 */
+        var oF=document.getElementById("f");
+        var oZ=document.getElementById("Z");
+        window.onresize=function(){
+            if (document.documentElement.clientWidth > 400) {
+                document.body.style.background = "red";
+            } else {
+                document.body.style.background = "yellow";
+            }
+        }
+    </script>
+</body>
+</html>

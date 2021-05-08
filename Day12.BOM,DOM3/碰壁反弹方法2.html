@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            position: relative;
+            width: 1000px;
+            height: 800px;
+            border: 1px solid salmon;
+            margin: 50px auto;
+        }
+
+        #ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            background-color: aqua;
+            border-radius: 50%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="ball"></div>
+    </div>
+    <script>
+        var oOuter = document.querySelector("#outer");
+        var oBall = document.getElementById('ball');
+        var l = 50;
+        var t = 80;
+        var a=2;
+        var b=2;
+        setInterval(function(){
+            l+=a;
+            t+=b;
+            //只要达到临界值a就变成负数  
+            if(l>=oOuter.clientWidth-oBall.offsetWidth||l<=0){
+                a*=-1;
+            }
+            if(t>=oOuter.clientHeight-oBall.offsetHeight||t<=0){
+                b*=-1;
+            }
+            oBall.style.left=l+"px";
+            oBall.style.top=t+"px";
+        })
+    </script>
+</body>
+
+</html>

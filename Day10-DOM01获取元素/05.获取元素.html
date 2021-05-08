@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box">
+        <li class="show">1</li>
+        <li>2</li>
+        <li class="show">3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /* 
+            通过id：
+                document.getElementById("id");
+            通过标签名：
+                document.getElementsByTagName("tagname");
+                得到的是一个HTMLCollection对象，类数组
+                因为获取的是一个集合而不是某一个DOM节点，所以我们需要通过下标获取某一个节点才能操作
+
+            通过类名获取（IE678不兼容）
+                document.getElementsByClassName("classname");
+                得到的是一个HTMLCollection对象 类数组
+                 因为获取的是一个集合而不是某一个DOM节点，所以我们需要通过下标获取某一个节点才能操作
+        */
+
+        var oBox=document.getElementById("box");
+        
+        var oBoxLis=oBox.getElementsByTagName("li");
+        console.log(oBoxLis);
+        /* oBoxLis.style.color="red"; */
+
+
+        var oShows=oBox.getElementsByClassName("show");
+        console.log(oShows);
+    </script>
+</body>
+</html>

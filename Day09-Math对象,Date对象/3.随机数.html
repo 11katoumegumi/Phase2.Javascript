@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 生成0-255的随机数，前闭后开
+        */
+       console.log(Math.random()*255);
+       console.log(Math.random()*255);
+       console.log(Math.random()*255);
+
+       /* 生成[10-256)的整数随机数 */
+       console.log(Math.random()*(256-10)+10)
+
+       //封装一个生成[a,b)随机正整数
+       function randomNum(a,b){
+            return Math.random()*(b-a)+a;
+       }
+       console.log(randomNum(5,100));
+    </script>
+</body>
+</html>

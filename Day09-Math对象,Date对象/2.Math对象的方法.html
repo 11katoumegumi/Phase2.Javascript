@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Math对象的方法
+            -Math.abs()求绝对值
+            -Math.ceil()向上取整，向大的数值
+            -Math.floor()向下取整，向小的数值
+            -Math.round()四舍五入
+            -Math.max()求最大值
+            -Math.min()求最小值
+            -Math.sqrt()求平方根
+            -Math.random()在0到1之间生成随机数
+            -sin cos tan
+        */
+
+        console.log(Math.abs(-5)); //5
+        console.log(Math.ceil(2.3)); //3
+        console.log(Math.ceil(2.7)); //3
+        console.log(Math.floor(2.3)); //2
+        console.log(Math.floor(2.7)); //2
+        console.log(Math.round(2.3)); //2
+        console.log(Math.round(2.7)); //3
+        console.log(Math.max(1, 5, 3, 69, 471, 3, 1, 4, 5, 66)) //471
+        console.log(Math.min(1, 5, 3, 69, 471, 3, 1, 4, 5, 66)) //1
+        console.log(Math.sqrt(2)); //根号2
+        console.log(Math.sqrt(4)); //2
+
+        setInterval(function () {
+            console.log(Math.random());
+        }, 500);
+
+
+        //Math.sin  Math.cos Math.tan  要求内部书写的是弧度
+
+        Math.sin(30 * 2 * Math.PI / 360);
+    </script>
+</body>
+
+</html>
