@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var oBtn = document.querySelector("#btn");
+        var oBox = document.querySelector(".box");
+        var oLis = document.querySelectorAll(".box li");
+
+        function insertAfter(newEle, oldEle) {
+            var flagEle = oldEle.nextElementSibling;
+            console.log(flagEle);
+            if (flagEle) {
+                oBox.insertBefore(newEle, flagEle);
+            } else {
+                oBox.appendChild(newLi);
+            }
+        }
+
+        //封装一个在元素内部的最上边插入beforeChild
+        function beforeChild(newEle) {
+            var firstEle=oBox.firstChild;
+            if(firstEle){
+                oBox.insertBefore(newEle,firstEle);
+            }else{
+                oBox.appendChild(newEle);
+            }
+        }
+        oBtn.onclick = function () {
+            var newLi = document.createElement("Li");
+            newLi.innerText = "777"
+            beforeChild(newLi,);
+            
+        }
+    </script>
+</body>
+
+</html>

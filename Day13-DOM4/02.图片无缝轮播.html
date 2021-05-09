@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            position: relative;
+            margin: 50px auto;
+            width: 507px;
+        }
+
+        #inner {
+            overflow: hidden;
+            width: 507px;
+        }
+
+        #con {
+            width: 3535px;
+            display: flex;
+        }
+
+        img {
+            width: 507px;
+        }
+
+        p {
+            width: 50px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            background-color: rgba(250, 128, 114, .6);
+            font-size: 40px;
+            color: white;
+            position: absolute;
+
+        }
+
+        p:hover {
+            background-color: rgb(250, 128, 114);
+        }
+
+        #previous {
+            left: 0;
+            top: 50%;
+            margin-top: -135px;
+        }
+
+        #next {
+            right: 0;
+            top: 50%;
+            margin-top: -135px
+        }
+
+        #navidot {
+            display: flex;
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            margin-left: -150px;
+        }
+
+        #navidot li {
+            width: 20px;
+            height: 20px;
+            background-color: wheat;
+            border-radius: 50%;
+            margin: 10px;
+
+        }
+
+        #navidot .active {
+            background-color: skyblue;
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="con">
+                <img src="img/1.jpg" alt="">
+                <img src="img/2.jpg" alt="">
+                <img src="img/3.jpg" alt="">
+                <img src="img/4.jpg" alt="">
+                <img src="img/5.jpg" alt="">
+                <img src="img/6.jpg" alt="">
+                <img src="img/7.jpg" alt="">
+                <img src="img/1.jpg" alt="">
+            </div>
+        </div>
+
+        <p id="previous">&lt</p>
+        <p id="next">&gt</p>
+
+        <ul id="navidot">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var oInner = document.querySelector("#inner");
+        var oPrevious = document.querySelector("#previous");
+        var oNext = document.querySelector("#next");
+        var oImgs = document.querySelectorAll("img");
+        var oDot = document.querySelectorAll("ul li")
+        var moveAni = null;
+        var autoMove;
+        var roll;
+        var i = 0;
+      
+        //封装清楚定时器函数
+        var clearTimer = function () {
+    
+            clearInterval(autoMoveAni);
+            clearInterval(moveAni);
+        }
+      
+        //封装改变下标函数
+        var changeDot = function () {
+            oDot.forEach(function (item, index) {
+                item.classList.remove("active");
+            })
+           
+            if(i>oImgs.length-2){
+                oDot[0].classList.add("active");
+                console.log(i)
+            }else{
+                oDot[i].classList.add("active");
+            }
+        }
+     
+        //封装轮播动画函数
+        var scrollAnime = function () {
+            var startLocation = oInner.scrollLeft;
+            var endLocation = i * oImgs[0].offsetWidth;
+            var starStep = 0;
+            var endStep = 30;
+            var everyStep = (endLocation - startLocation) / endStep;
+            moveAni = setInterval(function () {
+                starStep++;
+                if (starStep >= endStep) {
+                    clearInterval(moveAni);
+                }
+                startLocation += everyStep;
+                oInner.scrollLeft = startLocation;
+            }, 20)
+            
+        }
+     
+        //封装自动轮播函数
+        var autoMove=function(){ 
+            autoMoveAni = setInterval(function () {
+            clearInterval(moveAni)
+            //控制变量
+            i++;
+            if (i > oImgs.length-1) {
+                i = 0;
+                oInner.scrollLeft=0;
+            }
+            console.log(i);
+            scrollAnime()
+            //去下标
+            changeDot();
+        }, 2000);}
+       
+        //页面加载时先自动轮播  
+        autoMove();
+
+        //点击左边
+        oPrevious.onclick = function () {
+            clearTimer();
+            //控制变量
+            i--;
+            if (i < 0) {
+                oInner.scrollLeft=oImgs[0].offsetWidth*(oImgs.length-1);
+                i = oImgs.length - 2;
+            }
+            //轮播动画
+            scrollAnime();
+            //改变下标
+            changeDot();
+            //自动轮播
+            autoMove();
+        }
+        //点击右边
+        oNext.onclick = function () {
+            clearTimer();
+            //控制变量
+            i++;
+            //判断i的临界值
+            if (i > oImgs.length-1) {
+                i = 1;
+                oInner.scrollLeft=0;
+            }
+            //轮播动画
+            scrollAnime();
+            //改变下标
+            changeDot();
+            //自动轮播
+            autoMove();
+        }
+        //点击导航球
+        oDot.forEach(function (item, index) {
+            item.onclick = function () {
+                clearTimer();
+
+                //控制变量
+                i = index;
+
+                //轮播动画
+                scrollAnime();
+                //修改下标
+                changeDot();
+                //自动轮播
+                autoMove();
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox=document.querySelector("#box");
+
+        oBox.onmousedown=function(e){
+
+            //初始位置
+            var startLocation={
+                l:oBox.offsetLeft,
+                t:oBox.offsetTop,
+            }
+ 
+            var mouseToWin={
+                l:e.clientX,
+                t:e.clientY,
+            }
+            
+            document.onmousemove=function(e){
+                var oBoxLast={
+                    x:e.clientX-mouseToWin.l+startLocation.l,
+                    y:e.clientY-mouseToWin.t+startLocation.t,
+                }
+
+                oBox.style.left=oBoxLast.x+"px";
+                oBox.style.top=oBoxLast.y+"px";
+
+                if(oBoxLast.x>=document.documentElement.clientWidth-oBox.offsetWidth){
+                    oBoxLast.x=document.documentElement.clientWidth-oBox.offsetWidth;
+                    oBox.style.left=oBoxLast.x+"px";
+                }else if(oBoxLast.x<=0){
+                    oBoxLast.x=0
+                    oBox.style.left=oBoxLast.x+"px";
+                }
+                if(oBoxLast.y>=document.documentElement.clientHeight-oBox.offsetHeight){
+                    oBoxLast.y=document.documentElement.clientHeight-oBox.offsetHeight;
+                    oBox.style.top=oBoxLast.y+"px";
+                }else if(oBoxLast.y<=0){
+                    oBoxLast.y=0
+                    oBox.style.top=oBoxLast.y+"px";
+                }
+            }
+            
+            oBox.onmouseup=function(e){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+        }
+       
+    </script>
+</body>
+</html>

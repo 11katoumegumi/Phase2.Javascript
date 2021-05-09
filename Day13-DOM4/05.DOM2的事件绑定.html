@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="outer">
+        outer
+        <div id="inner">
+            inner
+            <div id="con">con</div>
+        </div>
+    </div>
+
+    <script>
+
+        var oOuter=document.querySelector("#outer")
+        var oInner=document.querySelector("#inner")
+        var oCon=document.querySelector("#con")
+
+        /* 
+            DOM绑定事件：
+                -使用元素的addEventListener()方法对元素注册一个事件
+                -参数1：事件名
+                -参数2：事件处理函数
+                -参数3：布尔值 true代表捕获 false代表冒泡
+
+            特点：
+                -可以对同一个元素绑定一个事件多次，按书写顺序执行
+                -可以控制冒泡和捕获
+
+            选择绑定事件的方式：
+                -如果当前事件是DON2级事件，则必须通过DOM2绑定（DOMContentLoaded事件)
+                -考虑是否要控制冒泡或者捕获
+                -如果对同一个元素绑定同一个事件多次，选DOM2;
+        */
+
+        /* oCon.addEventListener("click",function(){
+            console.log("con1")
+        },false)
+        oCon.addEventListener("click",function(){
+            console.log("con2")
+        },false)
+        oCon.addEventListener("click",function(){
+            console.log("con3")
+        },false)
+ */
+        oCon.addEventListener("click", function () {
+            console.log("con1")
+        }, false);
+        oInner.addEventListener("click", function () {
+            console.log("inner")
+        }, true);
+        oOuter.addEventListener("click", function () {
+            console.log("outer")
+        }, false);
+        document.addEventListener("click", function () {
+            console.log("document")
+        }, true);
+    </script>
+</body>
+</html>
