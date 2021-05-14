@@ -1,0 +1,16 @@
+//when(条件判断)
+//无守卫
+.mixin(@a){
+    height: 100px;
+}
+.minxin(@a)when(@a<50px){
+    height: 100px;
+    width: @a;
+    background-color: salmon;
+}
+.minxin(@a)when(@a>50),(@a<100){
+    background-color: black;
+}
+#box{
+    .minxin(50px)
+}

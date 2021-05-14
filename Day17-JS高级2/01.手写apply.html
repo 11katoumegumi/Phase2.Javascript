@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myApply = function (con) {
+            //判断类型
+            if (con === null || con === undefined) {
+                con = window;
+            }
+            if (typeof con !== "object" && typeof con !== "function") {
+                con = Object(con);
+            }
+
+            //获取参数
+            var args = Array.from(arguments).slice(1);
+            /* console.log(args.toString()) */
+            //给con拓展一个方法，赋值为调myApply的方法本身
+            var key = Date.now().toString(36);
+            con[key] = this;
+            eval("con[key]("+args+");")
+            delete con[key];
+        }
+
+        function fn(a, b) {
+            console.log(a, b);
+            console.log(this, a + b);
+        }
+        fn.myApply(1, [1,2]);
+/*         fn.myApply("abc", 1, 2);
+        fn.myApply(true, 1, 2);
+        fn.myApply([1, 2], 1, 2);
+        fn.myApply({
+            name: "laowang"
+        }, 1, 2); */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+/* less变量用@加变量名表示变量，在把变量名当属性名时需要使用@{a}的格式来使用 */
+#box {
+  width: 100px;
+  height: 200px;
+  background-color: #114514;
+}
+#box .con {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  color: #114514;
+  background: url("https://tva1.sinaimg.cn/large/00831rSTgy1gdnerxegkhj30j008d3yj.jpg");
+}

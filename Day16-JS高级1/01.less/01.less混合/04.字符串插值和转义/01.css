@@ -1,0 +1,8 @@
+/* 字符串插值是在字符串中插入变量 直接使用@{}
+    ~是转义字符，可以吧字符串转移成非字符串格式
+*/
+#box {
+  width: 30px;
+  height: 100px;
+  background: "http://www.baidu.com/01.png";
+}

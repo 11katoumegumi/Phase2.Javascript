@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      /* 
+        判断数据类型：
+            typeof:
+                能够检测的类型:number string boolean undefined function symbol bigint
+
+            ===:
+                用于检测null和undefined
+                因为null和undefined类型都只有一个值，所有全等判断只要类型相同，则值一定相等
+            object.toString():
+                object的toString方法返回的字符串中拥有的当前数据的类型，所以我们可以让其他类型调用object.toString方法进行检测
+                Object.prototype.toString.call(value).slice(8.-,-1).toLowerCase;
+       */  
+       var a=null;
+       console.log(a===null);
+       var b=undefined;
+       console.log(b===undefined);
+       //object的toString方法返回的字符串中拥有当前数据的类型
+       console.log([].toString());
+
+       //让其他类型也能使用object.toString方法
+       //1.要拿到object.toString方法：Object.prototype.toString();
+       //2.改变to.String的this指向，指向你要检测的类型 call方法就是一个能改变this指向的函数
+       var num=Object.prototype.toString.call(1).slice(8,-1).toLowerCase();
+       console.log(num)
+       var str=Object.prototype.toString.call("aaa").slice(8,-1).toLowerCase();
+       console.log(str);
+       var boo=Object.prototype.toString.call(true).slice(8,-1).toLowerCase();
+       console.log(boo);
+       var arr=Object.prototype.toString.call([]).slice(8,-1).toLowerCase();
+       console.log(arr);
+       var obj=Object.prototype.toString.call({}).slice(8,-1).toLowerCase();
+       console.log(obj);
+       var func=Object.prototype.toString.call(function fn(){}).slice(8,-1).toLowerCase();
+       console.log(func);
+       var nul=Object.prototype.toString.call(null).slice(8,-1).toLowerCase();
+       console.log(nul);
+
+       //封装检测函数
+       var checkType=function(value){
+        var re=Object.prototype.toString.call(value).slice(8,-1).toLowerCase();
+        console.log(re);
+       }
+
+       checkType(1);
+       checkType("1");
+       checkType(function(){
+           
+       })
+    </script>
+</body>
+</html>

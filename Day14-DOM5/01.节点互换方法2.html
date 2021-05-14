@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            width: 700px;
+            margin: 100px auto;
+            display: flex;
+        }
+
+        #left,
+        #right {
+            width: 400px;
+            height: 500px;
+            display: flex;
+            border: 1px solid gold;
+        }
+
+        #center {
+            text-align: center;
+            width: 100px;
+            background-color: skyblue;
+        }
+
+        ul {}
+
+        li {
+            width: 300px;
+            margin: 10px 0;
+            padding-left: 20px;
+            font-size: 20px;
+        }
+
+        button {
+            margin: 50px 0 50px;
+        }
+
+        .sld {
+            background-color: salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="left">
+            <ul id="list1">
+                <li>我是列表1内容1</li>
+                <li>我是列表1内容2</li>
+                <li>我是列表1内容3</li>
+                <li>我是列表1内容4</li>
+            </ul>
+        </div>
+        <div id="center">
+            <button id="toRight">
+                &gt;&gt;&gt;&gt;&gt;
+            </button>
+            <button id="toLeft">
+                &lt;&lt;&lt;&lt;&lt;
+            </button>
+        </div>
+        <div id="right">
+            <ul id="list2">
+                <li>我是列表2内容1</li>
+                <li>我是列表2内容2</li>
+                <li>我是列表2内容3</li>
+                <li>我是列表2内容4</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        oLeft = document.getElementById("list1")
+        oRight = document.getElementById("list2")
+
+        oLi1s = oLeft.querySelectorAll("#list1 li");
+        oLi2s = oRight.querySelectorAll("#list2 li");
+        console.log(oLi2s)
+        oToRight = document.getElementById("toRight")
+        oToLeft = document.getElementById("toLeft")
+        console.log(oLi2s)
+        oLi1s.forEach(function(item,index){
+            item.onclick=function(){
+                item.style.background="red";
+                this.dataset.selected="true";
+            }
+        })
+        oLi2s.forEach(function(item,index){
+            item.onclick=function(){
+                item.style.background="red";
+                this.dataset.selected="true";
+            }
+        })
+        
+        oToRight.onclick = function () {
+            oLi1s.forEach(function(item,index){
+                if(item.dataset.selected){
+                    console.log(item)
+                    item.style.background="transparent";
+                    delete item.dataset.selected;
+                    oLi2s[0].parentNode.appendChild(item);
+                }
+            })
+            oLi1s = oLeft.querySelectorAll("#list1 li");
+        }
+        oToLeft.onclick = function () {
+            oLi2s.forEach(function(item,index){
+                if(item.dataset.selected){
+                    item.style.background="transparent";
+                    delete item.dataset.selected;
+                    oLi1s[0].parentNode.appendChild(item);
+                }
+            })
+            oLi2s = oRight.querySelectorAll("#list2 li");
+        }
+    </script>
+</body>
+
+</html>

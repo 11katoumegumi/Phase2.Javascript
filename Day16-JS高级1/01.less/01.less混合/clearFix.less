@@ -1,0 +1,9 @@
+#ouer{
+    *zoom:1;/* 激活IE低版本的haslayout */
+}
+#outer::after{
+    content: "\200B";
+    height: 0;//防止有的浏览器解析为1
+    clear:both;
+    display: block;
+}

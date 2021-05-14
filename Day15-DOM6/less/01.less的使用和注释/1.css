@@ -1,0 +1,11 @@
+/* 多行注释会被编译到css */
+#box {
+  width: 200px;
+  height: 200px;
+  background-color: saddlebrown;
+}
+#box .con {
+  width: 100px;
+  height: 200px;
+  background-color: salmon;
+}

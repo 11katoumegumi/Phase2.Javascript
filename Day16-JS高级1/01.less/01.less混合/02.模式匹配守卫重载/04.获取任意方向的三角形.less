@@ -1,0 +1,20 @@
+.trangle(@_){
+    height: 0px;
+    width: 0px;
+    border: 10px solid transparent;
+}
+.trangle(top){
+    border-bottom:10px solid salmon
+}
+.trangle(left){
+    border-right:10px solid salmon
+}
+.trangle(bottom){
+    border-top:10px solid salmon
+}
+.trangle(right){
+    border-left:10px solid salmon
+}
+#box{
+    .trangle(top)
+}

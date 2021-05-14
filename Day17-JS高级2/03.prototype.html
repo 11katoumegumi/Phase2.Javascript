@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            prototype:
+                -prototype是一个指针，指向原型对象，也被成为显示原形
+                -每一个函数都有一个prototype属性
+                -原形对象默认都是一个空对象(constructor属性除外)
+                -当函数被实例化的时候，如果实例化对象调用某个方法或属性，实例化对象自己没有就会到这个构造函数的原型对象上去找
+                -只有构造函数的prototype才有意义，其他函数的prototype没有意义
+
+                -prototype作为一个属性，可以被改写，改写后的不影响原有的地址里的值
+        */
+       //封装一个函数
+       function fn(){
+
+       }
+       //默认prototype原型对象是一个空对象
+       console.log(fn.prototype);
+
+       //给原形对象拓展
+       fn.prototype.hello=function(){
+           console.log("hello World");
+       }
+       var o1=new fn();
+       var o2=new fn();
+       var o3=new fn();
+       var o4=new fn();
+       o1.hello()
+       o2.hello()
+       o3.hello()
+       o4.hello()
+    </script>
+</body>
+</html>

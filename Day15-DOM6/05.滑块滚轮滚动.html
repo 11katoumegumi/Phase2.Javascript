@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+        }
+
+        #con {}
+
+        #bar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 30px;
+            border: 1px solid #ccc;
+            border-top: 0;
+            border-bottom: 0;
+        }
+
+        #box {
+            position: absolute;
+            top: 0;
+            /* height: 40px; */
+            width: 30px;
+            background-color: salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="con"></div>
+    <div id="bar">
+        <div id="box"></div>
+    </div>
+    <script>
+        var oCon = document.getElementById("con");
+        var oBar = document.getElementById("bar")
+        var oBox = document.getElementById("box")
+        var t=0;
+        for (var i = 0; i < 400; i++) {
+            oCon.innerHTML += i + "<br>";
+        }
+        //滑块高度自适应
+        /* 滑块走的距离/滑块能走的距离=文档走过的距离/文档能走的距离*/
+        //滑块能走的距离
+        var barLong=oBar.offsetHeight;
+        //文档能走的距离
+        var docLong= oCon.offsetHeight;
+
+        var winHeight = document.documentElement.clientHeight
+        var scale = docLong/ barLong;
+        var boxHeight = winHeight / scale;
+        oBox.style.height = boxHeight + "px";
+
+
+        oBox.onmousedown = function (e) {
+            e.preventDefault();
+            var mouseToBox = e.offsetY; //获取鼠标点击位置到元素边缘的位置
+
+            document.onmousemove = function (e) {
+                e.preventDefault();
+                var boxLocation = e.clientY - mouseToBox;
+                if (boxLocation <= 0) {
+                    boxLocation = 0;
+                } else if (boxLocation >= oBar.clientHeight - oBox.offsetHeight) {
+                    boxLocation = oBar.clientHeight - oBox.offsetHeight;
+                }
+                oBox.style.top = boxLocation + "px";
+
+
+                //计算内容下滑的比例
+                /* 滑块走的距离/滑块能走的距离=文档走过的距离/文档能走的距离*/
+                //滑块能走的距离
+                var boxAll = oBar.clientHeight - oBox.offsetHeight;
+                //文档能走的距离
+                var docAll = oCon.offsetHeight - document.documentElement.clientHeight;
+                //获取滑块走过的距离
+                var boxScrolled = boxLocation;
+                var scale = docAll/boxAll 
+                var docDisplay = scale * boxLocation;
+                oCon.style.transform = "translateY(-" + docDisplay + "px)";
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+        document.onmousewheel=function(e){
+            
+            if(e.wheelDelta<0){
+                t+=5;
+            }else{
+                t-=5;
+            }
+            oBox.style.top=t+"px";
+            if (t <= 0) {
+                    t = 0;
+                } else if (t >= oBar.clientHeight - oBox.offsetHeight) {
+                    t = oBar.clientHeight - oBox.offsetHeight;
+                }
+            var oConLocation=t*scale;
+            oCon.style.transform="translateY(-"+oConLocation+"px)";
+            console.log(oConLocation)
+        }
+    </script>
+</body>
+
+</html>

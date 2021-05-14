@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 在Array的原型对象中添加一个去重方法，让所有的Array都能够使用其去重
+            
+        */
+        Array.prototype.quchong=function(){
+            var newArr=[];
+            var that=this;
+            this.forEach(function(item,index){
+                if(that.indexOf(item)===index){
+                    newArr.push(item);
+                }
+            })
+            return newArr;
+        }
+
+        console.log([8,7,2,3,4,2,4,8,7,5,6].quchong());
+
+        /* 字符串去空格方法 */
+        String.prototype.deleteSpace=function(){
+            return (this.replace(/\s/gi,""))
+        }
+
+        var str="asld nawio  dhiowds bduifgns w asio9 ashdfo asopf opasf noas b"
+        console.log(str.deleteSpace());
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* less变量用@加变量名表示变量，在把变量名当属性名时需要使用@{a}的格式来使用 */
+@mainColor:#114514;
+
+//2变量作为属性名使用 使用的时候 把变量用{}包起来
+@h:height;
+
+//3作为选择器的名字使用
+@b:#box;
+
+//4保存url
+@url1:"https://tva1.sinaimg.cn/large/00831rSTgy1gdnerxegkhj30j008d3yj.jpg";
+
+@url2: url("https://tva1.sinaimg.cn/large/00831rSTgy1gdnerxegkhj30j008d3yj.jpg");
+
+@rul3: url(@url1);
+
+@{b}{
+    width: 100px;
+    @{h}:200px;
+    background-color: @mainColor;
+    .con{
+        background-color: #fff;
+        width: 50px;
+        height: 50px;
+        color: @mainColor;
+        background: @rul3;
+    }
+}

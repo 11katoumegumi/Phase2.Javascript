@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 300px;
+            /* border: 1px solid black; */
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box" style="background-color: salmon;"></div>
+    <script>
+        var oBox=document.querySelector("#box");
+        document.oncontextmenu=function(e){
+            e.preventDefault();
+            var l=e.clientX;
+            var t=e.clientY;
+            if(l+oBox.offsetWidth>=document.documentElement.clientWidth){
+                l=e.clientX-oBox.offsetWidth;
+            }
+            if(t+oBox.offsetHeight>=document.documentElement.clientHeight){
+                t=e.clientY-oBox.offsetHeight;
+            }
+            oBox.style.display="block";
+            oBox.style.left=l+"px";
+            oBox.style.top=t+"px";
+        }
+        oBox.onclick=function(e){
+            e.stopPropagation();
+        }
+        document.onclick=function(){
+            oBox.style.display="none"
+        }
+    </script>
+</body>
+</html>

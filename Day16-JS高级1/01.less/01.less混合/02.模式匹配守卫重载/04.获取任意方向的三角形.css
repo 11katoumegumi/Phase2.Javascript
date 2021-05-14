@@ -1,0 +1,6 @@
+#box {
+  height: 0px;
+  width: 0px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid salmon;
+}

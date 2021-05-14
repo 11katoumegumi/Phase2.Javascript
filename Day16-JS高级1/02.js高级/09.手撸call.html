@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.判断context
+            2.给context扩展一个方法ff
+            3.调用context.ff
+            4.删除ff方法
+            5.获取实参 在调用ff的时候 传入
+            6.把ff这个名字换了
+        
+         */
+        Function.prototype.myCall =function (context){
+            //判断context
+            if(context===null||context===undefined){
+                context=window;
+            }
+            //基本包装类型的时候为他们的包装对象
+            if(typeof context!=="object"&&typeof context!=="function"){
+                context=Object(context);
+            }
+            //截取arguments的第二位以后的值 用数组保存
+            var arg=Array.from(arguments).slice(1);
+            //给context拓展一个不会重复的方法
+            var key =Date.now().toString(36)
+            context[key]=this; 
+            //方法：赋值为不会重复的名字key 如果context调用了key,则this指向context。
+            eval("context[key](" + arg.toString() + ")");
+            //删除使用后无效的方法
+            delete context[key];
+        }
+
+        function fn(a,b){
+            console.log(a,b);
+            console.log(this,a+b);
+        }
+        fn.myCall(1, 1, 2);
+        fn.myCall("abc", 1, 2);
+        fn.myCall(true, 1, 2);
+        fn.myCall([1, 2], 1, 2);
+        fn.myCall({
+            name: "laowang"
+        }, 1, 2);
+    </script>
+</body>
+</html>
