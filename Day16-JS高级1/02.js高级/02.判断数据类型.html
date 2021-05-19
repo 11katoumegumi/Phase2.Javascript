@@ -16,7 +16,8 @@
             ===:
                 用于检测null和undefined
                 因为null和undefined类型都只有一个值，所有全等判断只要类型相同，则值一定相等
-            object.toString():
+
+            object.prototype.toString():
                 object的toString方法返回的字符串中拥有的当前数据的类型，所以我们可以让其他类型调用object.toString方法进行检测
                 Object.prototype.toString.call(value).slice(8.-,-1).toLowerCase;
        */  

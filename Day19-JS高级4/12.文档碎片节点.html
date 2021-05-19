@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">添加100个li</button>
+    <ul id="box">
+    </ul>
+    <script>
+        /* 
+            -DocumentFragment是一个虚拟的节点类型，仅仅存在于内存中，没有添加到文档树种，所以看不到渲染效果
+            -document.createDocumentFragment()方法创建,使用appencChild等方法插入
+        
+        */
+       var oBox=document.getElementById("box");
+       var oBtn=document.getElementById("btn");
+       oBtn.onclick=function(){
+           var newFrag=document.createDocumentFragment();
+           for (var i = 0; i < 100; i++) {
+               var newLi=document.createElement("li");
+               newLi.textContent="nihao";
+               newFrag.appendChild(newLi);
+           }
+           oBox.appendChild(newFrag);
+       }
+    </script>
+</body>
+</html>

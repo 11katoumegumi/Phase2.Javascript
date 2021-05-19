@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">主线程计算</button>
+    <button id="btn2">分线程计算</button>
+    <button id="btn3">测试假死</button>
+    <script>
+         var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oBtn3 = document.getElementById('btn3');
+
+        oBtn1.onclick=function(){
+            var sum=0;
+            for (var i = 0; i < 1000000000; i++) {
+                sum=Math.sqrt(i);
+            }
+            console.log(sum)
+        }
+
+        oBtn2.onclick=function(){
+            /* 
+                多线程的缺点：
+                    -不能操作DOM
+                    -不能跨区请求JS
+            */
+           //开启一个分线程,（其实就是一个外部的JS文件）
+           //实例化一个worker对象即可开启一个分线程
+           //返回值代表当前创建的 分线程
+           var ww=new Worker("./worker.js");
+
+           //poseMessage方法向某个进程传递信息
+           ww.postMessage(10000000);
+
+           //当分线程发送数据后，主进程需要坚挺，使用onmessage监听
+           ww.onmessage=function(e){
+               console.log(e.data);
+               //收到数据后，关闭分线程，使用terminate()方法
+               ww.terminate();
+           }
+        }
+    </script>
+</body>
+</html>
