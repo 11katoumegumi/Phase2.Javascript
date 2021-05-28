@@ -8,17 +8,21 @@
 </head>
 <body>
     <script>
-            var myInstanceOf=function(a,b){
-                var _b=b.__proto__;
-                var _a=a.__proto__;
-                while(_a){
-                    if(_a===_b){
-                        return true;
-                    }
-                    _a=_a.__proto__;
+            function myInstanceof(A, B) {
+            //先获取B的原型对象
+            var _B = B.prototype;
+            var _A = A.__proto__;
+            while (_A) {
+                if (_A === _B) {
+                    return true;
                 }
-                return false;
+                _A = _A.__proto__;
             }
+
+            //当while执行完成还没有返回true，则说明返回false
+            return false;
+
+        }
 
             console.log(myInstanceOf(Object,Function));
     </script>

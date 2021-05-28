@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 1.判断context
+            2.给context扩展一个方法ff
+            3.调用context.ff
+            4.删除ff方法
+            5.获取实参 在调用ff的时候 传入
+            6.把ff这个名字换了
+            
+            
+             -call的第一个参数有三种情况：
+                    1.null和undefined:默认会把this执行window
+                    2.基本包装类型:把this只想当前数据的包装对象
+                    3.对象类型：this直接指向该对象*/
+
+        Function.prototype.myCall = function (con) {
+            if(typeof(con)===null||typeof(con)===undefined){
+                con=window;
+            }
+            if (typeof (con) !== "object" || typeof (con) !== "function") {
+                con = Object(con);
+            }
+            //获取参数和设置一个不会重复的方法
+            var args=Array.from(arguments).slice(1);
+            var key=Date.now().toString(36);
+            con[key]=this;
+            eval("con[key]("+args+")");
+            delete con[key];
+
+        }
+        function fn(a,b){
+            console.log(a,b);
+            console.log(this,a+b);
+        }
+        fn.myCall(1, 1, 2);
+        fn.myCall("abc", 1, 2);
+        fn.myCall(true, 1, 2);
+        fn.myCall([1, 2], 1, 2);
+        fn.myCall({
+            name: "laowang"
+        }, 1, 2);
+    </script>
+</body>
+
+</html>

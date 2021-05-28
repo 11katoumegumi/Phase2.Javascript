@@ -23,7 +23,7 @@
          console.log(object.getNameFunc()()); //the window */
 
         //代码片段二
-        /* var name2 = "The Window";
+       /*  var name2 = "The Window";
         var object2 = {
             name2: "My Object",
             getNameFunc: function () {
@@ -36,7 +36,7 @@
         console.log(object2.getNameFunc()()); //My Object */
 
 
-         /* var a = function (val, index) {
+       /*   var a = function (val, index) {
              console.log(index);
              return {
                  fn: function (name) {
@@ -67,12 +67,12 @@
         obj.fun(x, y)
         console.log(obj.x);
         
-        console.log(x); */
+        console.log(x);
+ */
 
 
 
-
-     /*    var name = "aaa";
+/*         var name = "aaa";
         var obj = {
             name: "bbb",
             dose: function () {
@@ -83,9 +83,9 @@
             }
         }
         alert(obj.dose().call(this)) //aaa //dose有()先执行了一次
-        alert(obj.name) //ccc */
-
-        /* function Foo() {
+        alert(obj.name) //ccc
+ */
+      /*   function Foo() {
             var i = 0;
             return function () {
                 alert(i++);
@@ -95,10 +95,10 @@
         f2 = Foo();
         f1(); //0
         f1(); //1
-        f2(); //0 */
+        f2(); //0
+ */
 
-
-       /*  function test(a, b) {
+      /*   function test(a, b) {
             b = a + 10;
             alert(b);
             return {
@@ -112,11 +112,11 @@
         a.test(300);//NaN
         a.test(400);//NaN
 
-        var b = test(101).test(201).test(401);//111 
-        var c = test(102).test(202, 302);
+        var b = test(101).test(201).test(401);//111  NaN NaN
+        var c = test(102).test(202, 302);//112 312
         c.test();  */
 
-        /* function fun(n, o) {
+   /*      function fun(n, o) {
             console.log(o)
             return {
                 fun: function (m) {

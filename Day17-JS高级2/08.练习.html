@@ -13,7 +13,7 @@
         /*
             测试题1
         */
-        //构造函数A
+   /*      //构造函数A
         var A = function () {}
         //给构造函数A的原型对象扩展一个属性n
         A.prototype.n = 1
@@ -30,7 +30,7 @@
         var c = new A()
         console.log(b.n, b.m, c.n, c.m) //1 undefined 2 3
 
-
+ */
 
         /*
          测试题2
@@ -48,7 +48,7 @@
         //实例化F
         var f = new F();
         // f.a(); //f自身没有a，沿着原型链找到了Object.prototype的a
-        // f.b(); //b is not a function
+        // f.b(); //
         F.a() //F-->Function.prototype-->Object.prototype-->null
         F.b()
     </script>

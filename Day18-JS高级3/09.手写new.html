@@ -32,7 +32,7 @@
             //获取参数
             var args=Array.from(arguments).slice(1);
             //2调用构造函数并把它的this指向这个obj
-            var re=constur.apply(obj.args);
+            var re=constur.apply(obj,args);
             //3.修改原型链
             obj.__proto__==constur.prototype;
             //4.返回对象之前，判断构造函数的返回值是基本类型还是对象类型

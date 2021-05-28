@@ -27,8 +27,6 @@
         console.log(quickSort(arr1)); */
 
         var arr2=[8, 2, 6, 1, 1, 7, 5, 4, 9, 6];
-        var center=null;
-
 
 
         function quickSort(arr){
@@ -45,7 +43,6 @@
                     right1.push(item);
                 }
             });
-            console.log(left1,right1);
             var newArr = quickSort(left1).concat(center, quickSort(right1));
             return newArr;
         }
